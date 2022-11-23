@@ -53,6 +53,25 @@ class Flight(models.Model):
     late_aircraft_delay = models.IntegerField(default=0)
     weather_delay = models.IntegerField(default=0)
 
+
+
+# a airport endpoint application/json body example:
+# {
+#     "iata_code": "JFK",
+#     "airport": "John F Kennedy International Airport",
+#     "city": "New York",
+#     "state": "NY",
+#     "country": "United States",
+#     "latitude": 40.639751,
+#     "longitude": -73.778925
+# }
+
+# a airline endpoint application/json body example:
+# {
+#     "iata_code": "AA",
+#     "airline": "American Airlines Inc."
+# }
+
 # a flight endpoint application/json body example:
 # {
 #     "year": 2015,
