@@ -17,9 +17,15 @@ I chose this stack because I find it very reasonable to build the type of REST A
 
 #### Usage
 To access the API you will need to:
-1. Edit the `settings.py` file and change the `DATABASES` variable (line 79) to match your PostgreSQL database settings.
+1. Install the dependencies needed for the project: 
+    ```
+    pip install django
+    pip install djangorestframework
+    ```
 
-2. Run the following commands:
+2. Edit the `./wannabe/settings.py` file and change the `DATABASES` variable (line 79) to match your PostgreSQL database settings.
+
+3. Run the following commands:
     ```
     python manage.py makemigrations
     python manage.py migrate
@@ -30,7 +36,8 @@ Then you should be able to access the endpoints at http://127.0.0.1:8000/api/the
 
 #### API Endpoints
 The API dives into 3 main sections (airports, airlines, and flights). Each one with its own endpoints and can use the GET, POST, PUT, and DELETE methods.
-- /api/airports: 
+- /api/airports:
+
     example application/json content:
     ```
     {
@@ -43,10 +50,10 @@ The API dives into 3 main sections (airports, airlines, and flights). Each one w
         "longitude": float
     }
     ```
-
-
+    
 
 - /api/airlines
+
     example application/json content:
     ```
     {
@@ -55,7 +62,9 @@ The API dives into 3 main sections (airports, airlines, and flights). Each one w
     }
     ```
 
+
 - /api/flights
+
     example application/json content:
     ```
     {
