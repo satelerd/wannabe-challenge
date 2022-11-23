@@ -16,9 +16,17 @@ I chose this stack because I find it very reasonable to build the type of REST A
 ### Documentation
 
 #### Usage
-To access the API you will need to run the server locally: ```python manage.py runserver```
+To access the API you will need to:
+1. Edit the `settings.py` file and change the `DATABASES` variable (line 79) to match your PostgreSQL database settings.
 
-Then you can access the endpoints at http://127.0.0.1:8000/api/the_endpoint_here/
+2. Run the following commands:
+    ```
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py runserver
+    ```
+
+Then you should be able to access the endpoints at http://127.0.0.1:8000/api/the_endpoint_here/
 
 #### API Endpoints
 The API dives into 3 main sections (airports, airlines, and flights). Each one with its own endpoints and can use the GET, POST, PUT, and DELETE methods.

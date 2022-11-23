@@ -78,11 +78,22 @@ WSGI_APPLICATION = 'wannabe.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '',              # EDIT THIS
+        'USER': 'postgres',
+        'PASSWORD': '',       # EDIT THIS
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
+# If you want to use sqlite3, use this:
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
