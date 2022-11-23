@@ -2,7 +2,6 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-# For this challenge, we expect you to develop an API on Node.js that allows you to create, update, delete and get the data about airports, airlines, and flights attached to this email.
 
 from api.models import Airport
 from api.serializers import AirportSerializer

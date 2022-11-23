@@ -23,7 +23,7 @@ To access the API you will need to:
     pip install djangorestframework
     ```
 
-2. Edit the `./wannabe/settings.py` file and change the `DATABASES` variable (line 79) to match your PostgreSQL database settings.
+2. Edit the `./wannabe/settings.py` file and change the `DATABASES` variable (line 80) to match your PostgreSQL database settings.
 
 3. Run the following commands:
     ```
