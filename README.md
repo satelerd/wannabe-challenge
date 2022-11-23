@@ -1,6 +1,6 @@
 # Wannabe Challenge
 
-This is a technical challenge to validate my ability as a Backend Software Engineer which consists in:
+This is a technical challenge to validate my ability as a Backend Software Engineer, which consists in:
 
 - You have to choose the stack you will use and why you chose it.
 - The API must have documentation on how to use it as if you are delivering this API to a Frontend Developer.
@@ -16,7 +16,7 @@ I chose this stack because I find it very reasonable to build the type of REST A
 ### Documentation
 
 #### Usage
-To acces the API you will need to run the server locally: ```python manage.py runserver```
+To access the API you will need to run the server locally: ```python manage.py runserver```
 
 Then you can access the endpoints at http://127.0.0.1:8000/api/the_endpoint_here/
 
@@ -90,18 +90,13 @@ The API dives into 3 main sections (airports, airlines, and flights). Each one w
 ```
 fetch("http://127.0.0.1:8000/api/airline", {
   "method": "POST",
-  "headers": {
-    "Content-Type": "application/json"
-  },
+  "headers": { "Content-Type": "application/json" },
   "body": JSON.stringify({
     "iata_code": "XX",
     "airline": "xXairlineXx"
   })
 })
-.then(response => {
-  console.log(response);
-})
-.catch(err => {
-  console.error(err);
-});
+.then(response => { console.log(response); })
+.catch(err => { console.error(err); });
+
 ```
