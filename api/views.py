@@ -1,22 +1,26 @@
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from rest_framework import permissions
-from api.serializers import UserSerializer, GroupSerializer
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+from api.models import Airport
+from api.serializers import AirportSerializer
 
 
-class GroupViewSet(viewsets.ModelViewSet):
+# For this challenge, we expect you to develop an API on Node.js that allows you to create, update, delete and get the data about airports, airlines, and flights attached to this email.
+
+class AirportListView(APIView):
     """
-    API endpoint that allows groups to be viewed or edited.
+    List all airports, or create a new airport.
     """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    def get(self, request, format=None):
+        airports = Airport.objects.all()
+        serializer = AirportSerializer(airports, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = AirportSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
