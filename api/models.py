@@ -1,6 +1,4 @@
 from django.db import models
-
-
 # For this challenge, we expect you to develop an API on Node.js that allows you to create, update, delete and get the data about airports, airlines, and flights attached to this email.
 
 
@@ -55,6 +53,7 @@ class Flight(models.Model):
 
 
 
+# For testing purposes (delete later)):
 # a airport endpoint application/json body example:
 # {
 #     "iata_code": "JFK",

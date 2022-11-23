@@ -9,17 +9,19 @@ This is a technical challenge to validate my ability as a Backend Software Engin
 
 ## Challenge
 
-### The Stack
+### Stack
 This project was built using the Django Rest Framework.
-I chose this stack because I find it very reasonable to build the type of REST API needed for this challenge. This is because it's easy to start developing (from scratch) and it has a readable code which makes it easy to setup and understand.
+I chose this stack because I find it very reasonable to build the type of REST API needed for this challenge. This is because it's easy to start developing (from scratch) and it has a readable code which makes it easy to setup and to understand.
 
-### The API Documentation
-To acces the API you will need to run the server locally.
-```python manage.py runserver```
+### Documentation
 
-Then you can access the endpoints at http://127.0.0.1:8000/api/endpoint/
+#### Usage
+To acces the API you will need to run the server locally: ```python manage.py runserver```
 
-The API dives into 3 main sections (airports, airlines, and flights), each one with its own endpoints and can use the GET, POST, PUT, and DELETE methods.
+Then you can access the endpoints at http://127.0.0.1:8000/api/the_endpoint_here/
+
+#### API Endpoints
+The API dives into 3 main sections (airports, airlines, and flights). Each one with its own endpoints and can use the GET, POST, PUT, and DELETE methods.
 - /api/airports: 
     example application/json content:
     ```
@@ -82,3 +84,24 @@ The API dives into 3 main sections (airports, airlines, and flights), each one w
         "weather_delay": float
     }
     ```
+
+
+###### Example js fetch POST request
+```
+fetch("http://127.0.0.1:8000/api/airline", {
+  "method": "POST",
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": JSON.stringify({
+    "iata_code": "XX",
+    "airline": "xXairlineXx"
+  })
+})
+.then(response => {
+  console.log(response);
+})
+.catch(err => {
+  console.error(err);
+});
+```

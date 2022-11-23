@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+# For this challenge, we expect you to develop an API on Node.js that allows you to create, update, delete and get the data about airports, airlines, and flights attached to this email.
 
 from api.models import Airport
 from api.serializers import AirportSerializer
@@ -13,12 +14,7 @@ from api.models import Flight
 from api.serializers import FlightSerializer
 
 
-# For this challenge, we expect you to develop an API on Node.js that allows you to create, update, delete and get the data about airports, airlines, and flights attached to this email.
-
 class AirportListView(APIView):
-    """
-    List all airports, or create a new airport.
-    """
     def get(self, request, format=None):
         airports = Airport.objects.all()
         serializer = AirportSerializer(airports, many=True)
@@ -46,9 +42,6 @@ class AirportListView(APIView):
 
 
 class AirlineListView(APIView):
-    """
-    List all airlines, or create a new airline.
-    """
     def get(self, request, format=None):
         airlines = Airline.objects.all()
         serializer = AirlineSerializer(airlines, many=True)
@@ -76,9 +69,6 @@ class AirlineListView(APIView):
 
 
 class FlightListView(APIView):
-    """
-    List all flights, or create a new flight.
-    """
     def get(self, request, format=None):
         flights = Flight.objects.all()
         serializer = FlightSerializer(flights, many=True)
