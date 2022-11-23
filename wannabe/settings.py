@@ -76,6 +76,7 @@ WSGI_APPLICATION = 'wannabe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# If you want to configure your own database (postgres for example), use this:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',

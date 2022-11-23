@@ -32,8 +32,9 @@ class AirportListView(APIView):
         airports.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-    def put(self, request, format=None):
+    def patch(self, request, format=None,):
         airports = Airport.objects.all()
+        airports = airports.get(id=request.data['id'])
         serializer = AirportSerializer(airports, data=request.data, many=True)
         if serializer.is_valid():
             serializer.save()
@@ -59,9 +60,10 @@ class AirlineListView(APIView):
         airlines.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-    def put(self, request, format=None):
+    def patch(self, request, format=None):
         airlines = Airline.objects.all()
-        serializer = AirlineSerializer(airlines, data=request.data, many=True)
+        airlines = airlines.get(id=request.data['id'])
+        serializer = AirlineSerializer(airlines, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -86,9 +88,10 @@ class FlightListView(APIView):
         flights.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-    def put(self, request, format=None):
+    def patch(self, request, format=None):
         flights = Flight.objects.all()
-        serializer = FlightSerializer(flights, data=request.data, many=True)
+        flights = flights.get(id=request.data['id'])
+        serializer = FlightSerializer(flights, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
