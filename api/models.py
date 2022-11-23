@@ -21,37 +21,71 @@ class Airline(models.Model):
 
 
 
-# class Flight(models.Model):
-#     # YEAR,MONTH,DAY,DAY_OF_WEEK,AIRLINE,FLIGHT_NUMBER,TAIL_NUMBER,ORIGIN_AIRPORT,DESTINATION_AIRPORT,SCHEDULED_DEPARTURE,DEPARTURE_TIME,DEPARTURE_DELAY,TAXI_OUT,WHEELS_OFF,SCHEDULED_TIME,ELAPSED_TIME,AIR_TIME,DISTANCE,WHEELS_ON,TAXI_IN,SCHEDULED_ARRIVAL,ARRIVAL_TIME,ARRIVAL_DELAY,DIVERTED,CANCELLED,CANCELLATION_REASON,AIR_SYSTEM_DELAY,SECURITY_DELAY,AIRLINE_DELAY,LATE_AIRCRAFT_DELAY,WEATHER_DELAY
-#     year = models.IntegerField()
-#     month = models.IntegerField()
-#     day = models.IntegerField()
-#     day_of_week = models.IntegerField()
-#     airline = models.ForeignKey(Airline, on_delete=models.CASCADE)
-#     flight_number = models.IntegerField()
-#     tail_number = models.CharField(max_length=100)
-#     origin_airport = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="origin_airport")
-#     destination_airport = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="destination_airport")
-#     scheduled_departure = models.IntegerField()
-#     departure_time = models.IntegerField()
-#     departure_delay = models.IntegerField()
-#     taxi_out = models.IntegerField()
-#     wheels_off = models.IntegerField()
-#     scheduled_time = models.IntegerField()
-#     elapsed_time = models.IntegerField()
-#     air_time = models.IntegerField()
-#     distance = models.IntegerField()
-#     wheels_on = models.IntegerField()
-#     taxi_in = models.IntegerField()
-#     scheduled_arrival = models.IntegerField()
-#     arrival_time = models.IntegerField()
-#     arrival_delay = models.IntegerField()
-#     diverted = models.IntegerField()
-#     cancelled = models.IntegerField()
-#     cancellation_reason = models.CharField(max_length=100)
-#     air_system_delay = models.IntegerField()
-#     security_delay = models.IntegerField()
-#     airline_delay = models.IntegerField()
-#     late_aircraft_delay = models.IntegerField()
-#     weather_delay = models.IntegerField()
+class Flight(models.Model):
+    # YEAR,MONTH,DAY,DAY_OF_WEEK,AIRLINE,FLIGHT_NUMBER,TAIL_NUMBER,ORIGIN_AIRPORT,DESTINATION_AIRPORT,SCHEDULED_DEPARTURE,DEPARTURE_TIME,DEPARTURE_DELAY,TAXI_OUT,WHEELS_OFF,SCHEDULED_TIME,ELAPSED_TIME,AIR_TIME,DISTANCE,WHEELS_ON,TAXI_IN,SCHEDULED_ARRIVAL,ARRIVAL_TIME,ARRIVAL_DELAY,DIVERTED,CANCELLED,CANCELLATION_REASON,AIR_SYSTEM_DELAY,SECURITY_DELAY,AIRLINE_DELAY,LATE_AIRCRAFT_DELAY,WEATHER_DELAY
+    year = models.IntegerField(default=0)
+    month = models.IntegerField(default=0)
+    day = models.IntegerField(default=0)
+    day_of_week = models.IntegerField(default=0)
+    airline = models.ForeignKey(Airline, on_delete=models.CASCADE)
+    flight_number = models.IntegerField(default=0)
+    tail_number = models.CharField(max_length=100, default="")
+    origin_airport = models.CharField(max_length=100, default="")
+    destination_airport = models.CharField(max_length=100, default="")
+    scheduled_departure = models.TimeField()
+    departure_time = models.TimeField()
+    departure_delay = models.IntegerField(default=0)
+    taxi_out = models.IntegerField(default=0)
+    wheels_off = models.TimeField()
+    scheduled_time = models.IntegerField(default=0)
+    elapsed_time = models.IntegerField(default=0)
+    air_time = models.IntegerField(default=0)
+    distance = models.IntegerField(default=0)
+    wheels_on = models.TimeField()
+    taxi_in = models.IntegerField(default=0)
+    scheduled_arrival = models.TimeField()
+    arrival_time = models.TimeField()
+    arrival_delay = models.IntegerField(default=0)
+    diverted = models.BooleanField(default=False)
+    cancelled = models.BooleanField(default=False)
+    cancellation_reason = models.CharField(max_length=100, default="")
+    air_system_delay = models.IntegerField(default=0)
+    security_delay = models.IntegerField(default=0)
+    airline_delay = models.IntegerField(default=0)
+    late_aircraft_delay = models.IntegerField(default=0)
+    weather_delay = models.IntegerField(default=0)
 
+# a flight endpoint application/json body example:
+# {
+#     "year": 2015,
+#     "month": 1,
+#     "day": 1,
+#     "day_of_week": 4,
+#     "airline": 1,
+#     "flight_number": 98,
+#     "tail_number": "N407AS",
+#     "origin_airport": "ANC",
+#     "destination_airport": "SEA",
+#     "scheduled_departure": "05:15:00",
+#     "departure_time": "05:14:00",
+#     "departure_delay": -1,
+#     "taxi_out": 21,
+#     "wheels_off": "05:35:00",
+#     "scheduled_time": 205,
+#     "elapsed_time": 194,
+#     "air_time": 169,
+#     "distance": 1448,
+#     "wheels_on": "07:09:00",
+#     "taxi_in": 4,
+#     "scheduled_arrival": "07:20:00",
+#     "arrival_time": "07:13:00",
+#     "arrival_delay": -7,
+#     "diverted": false,
+#     "cancelled": false,
+#     "cancellation_reason": "N/A",
+#     "air_system_delay": 0,
+#     "security_delay": 0,
+#     "airline_delay": 0,
+#     "late_aircraft_delay": 0,
+#     "weather_delay": 0
+# }
