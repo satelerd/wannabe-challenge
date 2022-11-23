@@ -6,5 +6,6 @@ from django.db import models
 
 # Create your models here.
 class Airport(models.Model):
-    iata_code = models.CharField(max_length=3)
+    iata_code = models.CharField(max_length=3)  
     airline = models.CharField(max_length=100)
+
