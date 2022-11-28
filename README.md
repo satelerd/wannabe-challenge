@@ -22,7 +22,7 @@ I chose to use KOA because I have a good source of documentation and I also want
 As I said before, I started learning KOA from scratch, so this is my first project using it. 
 Learning a new language, framework (like in this case), or library, is always a challenge that comes with its learning curve, and the first project doesn't always go as planned.
 
-So, I did manage to implement the "easy" methods to all endpoints, that is, the GET and DELETE methods, but I didn't have enough time to implement the POST and PUT methods. I'm having problems with parsing the request body, which I feel like it can't be so difficult, but I didn't have enough time to fix it.
+So, I did manage to implement the "easy" methods to all endpoints, that is, the GET and DELETE methods, but I didn't have enough time to get the POST and PUT methods working correctly. I'm having problems with parsing the request body, which I feel like it can't be a very difficult bug, but I didn't have enough time to fix it.
 Also, I tried to connect the API to a PostgreSQL database, and I kinda managed to do it, but there are some problems with the connection.
 
 I know I can do it if I keep trying, but there is a deadline, so I decided to send it as it is.
