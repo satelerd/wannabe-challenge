@@ -1,52 +1,4 @@
-// import Router from 'koa-router';
-
-// const router = new Router();
-
-// const airports = [
-//     {
-//         iata_code: 'ABE',
-//         airport: 'Lehigh Valley International Airport',
-//         city: 'Allentown',
-//         state: 'PA',
-//         country: 'USA',
-//         latitude: 40.652083,
-//         longitude: -75.440806,
-//     },
-//     {
-//         iata_code: 'ABI',
-//         airport: 'Abilene Regional Airport',
-//         city: 'Abilene',
-//         state: 'TX',
-//         country: 'USA',
-//         latitude: 32.411319,
-//         longitude: -99.681897,
-//     }
-// ];
-
-// // GET /airports
-// router.get('airports.show', '/', (ctx) => {
-//     ctx.body = JSON.stringify(airports);
-// });
-
-// router.get('airports.show', '/:iata_code', (ctx) => {
-//     const airport = airports.find((airport) => {
-//         return airport.iata_code === ctx.params.iata_code;
-//     });
-
-//     if (airport) {
-//         ctx.body = JSON.stringify(airport);
-//     } else {
-//         ctx.status = 404;
-//     }
-// });
-
-// export default router;
-
-
-//  ----------------------------------------------------
-// write the same but for flights
-
-import Router from 'koa-router';
+const Router = require('koa-router');
 
 const router = new Router();
 
@@ -104,4 +56,4 @@ router.get('flights.show', '/:id', (ctx) => {
     }
 });
 
-export default router;
+module.exports = router;

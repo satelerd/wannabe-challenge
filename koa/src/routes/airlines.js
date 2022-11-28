@@ -1,4 +1,4 @@
-import Router from 'koa-router';
+const Router = require('koa-router');
 
 const router = new Router();
 
@@ -45,4 +45,4 @@ router.get('airlines.show', '/:iata_code', (ctx) => {
 // });
 
 
-export default router;
+module.exports = router;

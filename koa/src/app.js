@@ -1,9 +1,8 @@
-import Koa from 'koa';
-import KoaBody from 'koa-body';
-import KoaLogger from 'koa-logger';
-import router from './routes.js';
-import orm from './models';
-// const orm = require('./models');
+const Koa = require('koa');
+const KoaBody = require('koa-body');
+const KoaLogger = require('koa-logger');
+const router = require('./routes.js');
+const orm = require('./models');
 
 const app = new Koa();
 
@@ -19,9 +18,9 @@ app.context.orm = orm;
 
 app.use(router.routes());
 
-// app.listen(3000, () => {
-//     console.log('Server is running on port 3000');
-// }
-// );
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+}
+);
 
 module.exports = app;
