@@ -1,4 +1,6 @@
 /* eslint no-console: "off" */
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = require('./app');
 const orm = require('./models');
