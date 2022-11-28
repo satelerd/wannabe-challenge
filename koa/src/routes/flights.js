@@ -39,7 +39,7 @@ const flights = [
     }
 ];
 
-// GET /flights
+// GET
 router.get('flights.show', '/', (ctx) => {
     ctx.body = JSON.stringify(flights);
 });
@@ -55,5 +55,47 @@ router.get('flights.show', '/:id', (ctx) => {
         ctx.status = 404;
     }
 });
+
+// DELETE
+router.delete('flights.delete', '/:id', (ctx) => {
+    const flight = flights.find((flight) => {
+        return flight.id === parseInt(ctx.params.id);
+    });
+
+    if (flight) {
+        flights.splice(flights.indexOf(flight), 1);
+        ctx.status = 204;
+    } else {
+        ctx.status = 404;
+    }
+});
+
+// POST (NOT WORKING)
+router.post('flights.create', '/', (ctx) => {
+    const flight = ctx.request.body;
+
+    if (flight) {
+        flights.push(flight);
+        ctx.status = 201;
+    } else {
+        ctx.status = 400;
+    }
+});
+
+// PUT (NOT WORKING)
+router.put('flights.update', '/:id', (ctx) => {
+    const flight = flights.find((flight) => {
+        return flight.id === parseInt(ctx.params.id);
+    });
+
+    if (flight) {
+        flight.year = ctx.request.body.year;
+        ctx.body = JSON.stringify(flight);
+    } else {
+        ctx.status = 404;
+    }
+});
+
+
 
 module.exports = router;
